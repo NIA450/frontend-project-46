@@ -1,0 +1,16 @@
+{
+  "name": "@hexlet/code",
+  "version": "0.0.3",
+  "description": "",
+  "main": "gendiff.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^12.1.0"
+  }
+}
