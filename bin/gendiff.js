@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
-import parseData from "./parser.js";
+import gendiff from "../src/gendiff.js"
 
 const program = new Command();
 
@@ -15,12 +15,8 @@ program
   .action((filepath1, filepath2) => {
     const options = program.opts(); // Получаем опции
     const format = options.format || "default"; // Установка значения по умолчанию
-    const data1 = parseData(filepath1);
-    const data2 = parseData(filepath2);
-
-    console.log(`Comparing ${filepath1} and ${filepath2} with format: ${format}`);
-    console.log('Data from file 1:', data1);
-    console.log('Data from file 2:', data2);
+  const diff = gendiff(filepath1, filepath2);
+  console.log(diff);
   });
 
 // Парсинг аргументов командной строки
