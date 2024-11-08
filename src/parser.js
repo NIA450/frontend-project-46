@@ -7,7 +7,7 @@ const parseData = (filepath) => {
   const extname = path.extname(absolutePath);
 
   switch (extname) {
-    case ".json":
+    case '.json':
       return JSON.parse(data);
     default:
       throw new Error(`Unsupported file type: ${extname}`);
