@@ -1,6 +1,7 @@
 import parseData from "./parser.js";
+//import {sortBy, union}  from 'lodash';
 import _ from 'lodash';
-const { sortBy } = _;
+
 
 // function gendiff(filepath1, filepath2) {
 //   const data1 = parseData(filepath1);
@@ -31,14 +32,17 @@ const gendiff = (filepath1, filepath2) => {
   const data1 = parseData(filepath1);
   const data2 = parseData(filepath2);
   
-  const keys = sortBy([...Object.keys(data1), ...Object.keys(data2)]); // Уникальные и отсортированные ключи
+  const keys = _.sortBy([...Object.keys(data1), ...Object.keys(data2)]); // Уникальные и отсортированные ключи
+  const keysUniq = _.union(keys);
 
-  const result = keys.map((key) => {
+  const result = keysUniq.map((key) => {
       if (!(key in data1)) {
           return `  + ${key}: ${data2[key]}`; // Только во втором файле
-      } else if (!(key in data2)) {
+      }
+       if (!(key in data2)) {
           return `  - ${key}: ${data1[key]}`; // Только в первом файле
-      } else if (data1[key] !== data2[key]) {
+      }
+      if (data1[key] !== data2[key]) {
           return [
               `  - ${key}: ${data1[key]}`, // Различие из первого файла
               `  + ${key}: ${data2[key]}`  // Различие из второго файла
@@ -47,7 +51,7 @@ const gendiff = (filepath1, filepath2) => {
       return `    ${key}: ${data1[key]}`; // Значения совпадают
   });
 
-  return `{\n${result.join('\n')}\n}`; // Формируем итоговый вывод
+  return `{\n${result.join('\n')}\n}\n`; // Формируем итоговый вывод
 };
 
 export default gendiff;
