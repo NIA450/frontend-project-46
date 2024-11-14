@@ -10,8 +10,8 @@ const expectedPath = getFixturePath('expectedResults.txt');
 const expected = fs.readFileSync(expectedPath, 'utf-8');
 
 describe("gendiff", () => {
-  const file1 = path.join(dirname, "../data/file1.json"); // Полный путь к file1.json
-  const file2 = path.join(dirname, "../data/file2.json"); // Полный путь к file2.json
+  const file1 = path.join(dirname, "../data/file1.json");
+  const file2 = path.join(dirname, "../data/file2.json");
 
   test("compare JSON files with differences", () => {
     expect(gendiff(file1, file2)).toEqual(expected);

@@ -8,5 +8,20 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/dfc50c2d88cd46d069c1/test_coverage)](https://codeclimate.com/github/hexlet-boilerplates/nodejs-package/test_coverage)
 
 # Gendiff
-
 ## Установка
+
+## Пример использования
+Для сравнения двух YAML файлов выполните следующую команду:
+gendiff filepath1.yml filepath2.yml
+
+Это вернет различия между двумя файлами в формате:
+
+{
+  - follow: false
+    host: hexlet.io
+  - proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: true
+}
+
