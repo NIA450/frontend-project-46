@@ -11,17 +11,24 @@
 ## Установка
 
 ## Пример использования
-Для сравнения двух YAML файлов выполните следующую команду:
+Для сравнения двух JSON или YAML файлов с вложенной структурой выполните следующую команду:
+gendiff filepath1.json filepath2.json
 gendiff filepath1.yml filepath2.yml
 
 Это вернет различия между двумя файлами в формате:
 
-{
+<!-- {
   - follow: false
     host: hexlet.io
   - proxy: 123.234.53.22
   - timeout: 50
   + timeout: 20
   + verbose: true
+} -->
+{
+  - follow: false
+    setting1: Value 1
+  - setting2: 200
+  + setting3: null
+  + setting4: blah blah
 }
-
